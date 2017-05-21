@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 layouts=(fr ru us)
 current_layout=$(~/.config/i3/tools/xkblayout-state/xkblayout-state print %s | awk '{print $0}')
 layout_to_set="fr"

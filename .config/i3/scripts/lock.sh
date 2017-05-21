@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ICON=$HOME/.config/i3/images/casual_lock.png
 
-TEMPDIR=$HOME/tmp
+TEMPDIR=/tmp
 
 sh $HOME/.config/i3/scripts/individual_scrot.sh
 
