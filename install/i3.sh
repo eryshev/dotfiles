@@ -17,3 +17,6 @@ apt install -y rofi
 # Configure layout switcher
 cd ~/dev/dotfiles/.config/i3/tools/xkblayout-state
 make
+
+# Bug correction of file manager
+gsettings set org.gnome.desktop.background show-desktop-icons false
