@@ -6,3 +6,6 @@ installFromWEB https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.
 dropbox start -i
 # autostart it
 # dropbox autostart y
+cd ~/Dropbox
+dropbox exclude add *
+dropbox exclude remove keepassxc
