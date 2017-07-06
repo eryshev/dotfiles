@@ -20,3 +20,6 @@ make
 
 # Bug correction of file manager
 gsettings set org.gnome.desktop.background show-desktop-icons false
+
+# Fonts
+apt install -y fonts-font-awesome
