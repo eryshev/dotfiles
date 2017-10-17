@@ -1,9 +1,3 @@
-[user]
-	email = a.eryshev@criteo.com
-	name = Alexey Eryshev
-[gitreview]
-	remote = origin
-	username = a.eryshev
 [diff]
     tool = meld
 [core]
