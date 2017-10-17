@@ -167,6 +167,7 @@ bindsym Mod1+r mode "resize"
 
 # Colors
 set $bg-color                   #2f343f
+set $select-window-color        #00FF00
 set $inactive-bg-color          #2f343f
 set $text-color                 #f3f4f5
 set $inactive-text-color        #676e7d
@@ -236,20 +237,22 @@ workspace $workspace10 output $rigth_monitor
 ## Apps settings
 assign [class="Google-chrome"] $workspace1
 assign [class="Rambox"] $workspace10
+assign [class="Slack"] $workspace10
 
 # Start-up
 exec google-chrome
 exec rambox
+exec slack
 exec dropbox start
 
 # Widow Colours
 #                       border                  background              text                            indicator
-client.focused          $bg-color               $bg-color               $text-color                     $base0F
+client.focused          $select-window-color    $select-window-color    $select-window-color            $select-window-color
 client.focused_inactive $inactive-bg-color      $inactive-bg-color      $inactive-text-colorase03       $base0F
 client.unfocused        $inactive-bg-color      $inactive-bg-color      $inactive-text-colorase03       $base0F
 client.urgent           $urgent-bg-color        $urgent-bg-color        $text-color                     $base0F
 
-hide_edge_borders both
+hide_edge_borders smart
 
 # Compton compositor for xserver
 exec_always compton -f
@@ -258,4 +261,4 @@ exec_always compton -f
 bindsym Mod1+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # Hide title bar
-new_window 1pixel
+new_window pixel 3
