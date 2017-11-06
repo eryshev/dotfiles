@@ -105,6 +105,7 @@ bindsym Mod1+Shift+minus move scratchpad
 bindsym Mod1+minus scratchpad show
 
 set $workspace1 "1: Browser "
+set $workspace9 "9: Private "
 set $workspace10 "10: Messengers "
 
 # switch to workspace
@@ -116,7 +117,7 @@ bindsym Mod1+5 workspace 5
 bindsym Mod1+6 workspace 6
 bindsym Mod1+7 workspace 7
 bindsym Mod1+8 workspace 8
-bindsym Mod1+9 workspace 9
+bindsym Mod1+9 workspace $workspace9
 bindsym Mod1+0 workspace $workspace10
 bindsym Mod1+c workspace $workspace10
 
@@ -129,7 +130,7 @@ bindsym Mod1+Shift+5 move container to workspace 5
 bindsym Mod1+Shift+6 move container to workspace 6
 bindsym Mod1+Shift+7 move container to workspace 7
 bindsym Mod1+Shift+8 move container to workspace 8
-bindsym Mod1+Shift+9 move container to workspace 9
+bindsym Mod1+Shift+9 move container to workspace $workspace9
 bindsym Mod1+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
@@ -185,7 +186,7 @@ bar {
         colors {
                 separator $757575
                 background $bg-color
-                
+
                 #                       border                  background              text
                 focused_workspace       $bg-color               $bg-color               $text-color
                 # active_workspace      $bg-color               $base02                 $base03
@@ -207,7 +208,7 @@ bar {
 
 ###################### Custom conf ####################################
 
-# Move workspace between monitors 
+# Move workspace between monitors
 bindsym Mod1+n move workspace to output left
 
 # Switch keyboard layouts
@@ -219,7 +220,7 @@ bindcode Mod1+33 exec ~/.config/i3/scripts/switch_layouts.sh
 # Wallpaper
 exec_always feh --bg-scale ~/Pictures/Wallpapers/sunrise-phu-quoc-island-ocean.jpg
 
-# Block PC 
+# Block PC
 #bindsym Mod1+Shift+b exec i3lock
 bindsym Mod1+Shift+b exec ~/.config/i3/scripts/lock.sh
 
@@ -227,16 +228,17 @@ bindsym Mod1+Shift+b exec ~/.config/i3/scripts/lock.sh
 focus_follows_mouse no
 
 # Workspace configs
-#set $rigth_monitor "DP-1"
-#workspace $workspace10 output $rigth_monitor
-set $left_monitor "DVI-D-1"
-set $rigth_monitor "HDMI-1"
+# two monitors configuration
+# exec xrandr --output DP-4 --left-of DP-5
+# set $left_monitor "DP-4"
+# set $right_monitor "DP-5"
 workspace $workspace1 output $left_monitor
-workspace $workspace10 output $rigth_monitor
+workspace $workspace9 output $right_monitor
+workspace $workspace10 output $right_monitor
 
 ## Apps settings
 assign [class="Google-chrome"] $workspace1
-assign [class="Rambox"] $workspace10
+assign [class="Rambox"] $workspace9
 assign [class="Slack"] $workspace10
 
 # Start-up
@@ -257,7 +259,7 @@ hide_edge_borders smart
 # Compton compositor for xserver
 exec_always compton -f
 
-# Rofi 
+# Rofi
 bindsym Mod1+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # Hide title bar
