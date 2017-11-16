@@ -174,25 +174,25 @@ set $inactive-text-color        #676e7d
 set $urgent-bg-color            #e53935
 set $base0F                     #00ff00
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        # status_command i3status | ~/.i3/my_i3status.py
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        # status_command i3status
-        tray_output primary
-        font pango: System San Francisco Display, FontAwesome 11
-        colors {
-                separator $757575
-                background $bg-color
+# # Start i3bar to display a workspace bar (plus the system information i3status
+# # finds out, if available)
+# bar {
+#         # status_command i3status | ~/.i3/my_i3status.py
+#         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#         # status_command i3status
+#         tray_output primary
+#         font pango: System San Francisco Display, FontAwesome 11
+#         colors {
+#                 separator $757575
+#                 background $bg-color
                 
-                #                       border                  background              text
-                focused_workspace       $bg-color               $bg-color               $text-color
-                # active_workspace      $bg-color               $base02                 $base03
-                inactive_workspace      $inactive-bg-color      $inactive-bg-color      $inactive-text-color
-                urgent_workspace        $urgent-bg-color        $urgent-bg-color        $text-color
-        }
-}
+#                 #                       border                  background              text
+#                 focused_workspace       $bg-color               $bg-color               $text-color
+#                 # active_workspace      $bg-color               $base02                 $base03
+#                 inactive_workspace      $inactive-bg-color      $inactive-bg-color      $inactive-text-color
+#                 urgent_workspace        $urgent-bg-color        $urgent-bg-color        $text-color
+#         }
+# }
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
@@ -262,3 +262,6 @@ bindsym Mod1+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -opaci
 
 # Hide title bar
 new_window pixel 3
+
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
