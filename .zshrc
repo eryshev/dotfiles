@@ -2,12 +2,20 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/aeryshev/.oh-my-zsh
+export ZSH=/Users/a.eryshev/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="miloshadzic"
+ZSH_THEME="agnoster"
+
+DEFAULT_USER=a.eryshev
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,19 +59,18 @@ ZSH_THEME="miloshadzic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions osx sudo web-search) 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export M2_HOME=/opt/apache-maven-3.5.0
-export PATH=$PATH:$M2_HOME/bin
-export PATH=$PATH:/home/aeryshev/app/sbt/bin
-export PATH=$PATH:/home/aeryshev/app/node-v6.11.3-linux-x64/bin
-export PATH=$PATH:/home/aeryshev/app
-export PATH=$PATH:/home/aeryshev/.local/bin
+export GIT_SSH=$(which ssh)
 
-source ~/.credentials
+export PATH=$PATH:/Users/a.eryshev/dev/criteo/jmoab-cuttle/cuttle/cuttle-criteo
+
+pkill -f ".*clickshare.*" 
+
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -80,7 +87,6 @@ source ~/.credentials
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-export GIT_SSH="/usr/bin/ssh"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -88,14 +94,5 @@ export GIT_SSH="/usr/bin/ssh"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias sbtd="sbt -jvm-debug 9999"
-alias javad="java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1234"
-alias jmoab_refresh_all="mvn bfs:refresh-moab && mvn bfs:refresh-sources && mvn install -DskipTests"
-alias mvn="mvn -T4"
-alias mvni="mvn install -DskipTests"
-alias mvnrm="mvn bfs:refresh-moab"
-alias mvnrs="mvn bfs:refresh-sources"
-alias mvnr="mvnrm && mvnrs && mvni"
-alias clear_cache="rm -rf ~/.coursier/cache/* ~/.ivy2/cache ~/.m2/repository/*"
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
