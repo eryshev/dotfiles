@@ -1,11 +1,18 @@
 .dotfiles
 -
 
+Install:
+1. Pull with submodules:
+  ```
+  git pull --recursive
+  ```
+
 Based on:
 - [1](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789)
 
 OS X software:
-1. Organise your windows without usinf your mouse https://github.com/eczarny/spectacle
+1. Organise your windows without using your mouse https://github.com/eczarny/spectacle
+
 
 References:
 
