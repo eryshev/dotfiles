@@ -2,14 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/a.eryshev/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="random"
 
-DEFAULT_USER=a.eryshev
+DEFAULT_USER=${USER}
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -59,14 +59,14 @@ DEFAULT_USER=a.eryshev
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions osx sudo web-search) 
+plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo) 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export GIT_SSH=$(which ssh)
 
-export PATH=$PATH:/Users/a.eryshev/dev/criteo/jmoab-cuttle/cuttle/cuttle-criteo
+export PATH=$PATH
 
 pkill -f ".*clickshare.*" 
 
