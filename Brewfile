@@ -1,7 +1,8 @@
 tap 'homebrew/bundle'
+# tap 'crisidev/homebrew-chunkwm'
 
-brew 'skhd', args=['with-logging'], restart_service: true
-brew 'chunwm', args=['with-tmp-logging'], restart_service: true
+brew 'skhd', args={'with-logging': true}
+brew 'chunkwm', args={'with-tmp-logging': true}
 
 cask 'dropbox'
 cask 'keepassxc'

@@ -50,6 +50,11 @@ $ZSH/homebrew/install.sh 2>&1
 echo "› brew update"
 brew update
 
-# Install software
-echo "› $ZSH/script/install"
-$ZSH/script/install
+
+# Run Homebrew through the Brewfile
+echo "› brew bundle"
+brew bundle
+
+# find the installers and run them iteratively
+find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+
