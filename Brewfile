@@ -3,6 +3,7 @@ tap 'homebrew/bundle'
 
 brew 'skhd', args={'with-logging': true}
 brew 'chunkwm', args={'with-logging': true}
+brew 'zsh'
 
 cask 'dropbox'
 cask 'keepassxc'
