@@ -56,5 +56,6 @@ echo "› brew bundle"
 brew bundle
 
 # find the installers and run them iteratively
+echo "› install different dotfiles"
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
 
