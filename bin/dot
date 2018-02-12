@@ -44,12 +44,12 @@ done
 # $ZSH/macos/set-defaults.sh
 
 # Install homebrew
-$HOME/.dotfiles/homebrew/install.sh 2>&1
+$dotfilesDirectory/homebrew/install.sh 2>&1
+cd $dotfilesDirectory
 
 # Upgrade homebrew
 echo "› brew update"
 brew update
-
 
 # Run Homebrew through the Brewfile
 echo "› brew bundle"
@@ -58,4 +58,3 @@ brew bundle
 # find the installers and run them iteratively
 echo "› install different dotfiles"
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
-
