@@ -5,10 +5,10 @@ brew 'skhd', args={'with-logging': true}
 brew 'chunkwm', args={'with-logging': true}
 brew 'zsh'
 brew 'jq'
-brew 'docker'
-brew 'docker-compose'
+brew 'docker-compose', args={'--ignore-dependencies': true}
 
 cask 'dropbox'
 cask 'keepassxc'
 cask 'google-chrome'
 cask 'visual-studio-code'
+cask 'Docker'
