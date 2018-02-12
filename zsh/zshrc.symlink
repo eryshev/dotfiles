@@ -61,6 +61,9 @@ ZSH_THEME="robbyrussell"
 plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo) 
 
 source $ZSH/oh-my-zsh.sh
+for file in ~/.dotfiles/**/*.zsh; do
+    source $file
+done
 
 # User configuration
 export GIT_SSH=$(which ssh)
@@ -91,3 +94,5 @@ export GIT_SSH=$(which ssh)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias reload!="source ~/.zshrc"
