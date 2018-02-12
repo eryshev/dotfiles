@@ -95,8 +95,8 @@ export GIT_SSH=$(which ssh)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=~/.dotfiles/bin:$PATH
-
 export EDITOR="code"
+
+export PATH=~/.dotfiles/bin:$PATH
 
 alias reload!="source ~/.zshrc"
