@@ -1,6 +1,6 @@
 # i3 style bindings for chunkwm
 # open new terminal
-alt - return : open -a Terminal .
+alt + shift - return : open -a Terminal .
 
 # enter fullscreen mode for the focused container
 alt - f : chunkc tiling::window --toggle fullscreen
