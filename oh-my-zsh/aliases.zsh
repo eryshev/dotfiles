@@ -4,7 +4,7 @@ alias cls='clear' # Good 'ol Clear Screen command
 
 alias ger='gp origin HEAD:refs/publish/master'
 
-alias dp='ga -A && gc -am "update" && gp'
+alias gu='ga -A && gc -am "update" && gp'
 
 alias mvn="mvn -T4"
 alias mvni="mvn install -DskipTests"
