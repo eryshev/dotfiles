@@ -142,13 +142,23 @@ symlink
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
+  info "osx setup"
   info "installing dependencies"
-  if source bin/dot | while read -r data; do info "$data"; done
+  if source bin/dot_brew | while read -r data; do info "$data"; done
   then
-    success "dependencies installed"
+    success "brew dependencies installed"
   else
-    fail "error installing dependencies"
+    fail "error installing brew dependencies"
   fi
+fi
+
+info 'Run dot files installers'
+
+if source bin/dot | while read -r data; do info "$data"; done
+then
+  success "dotfiles installed"
+else
+  fail "error installing dotfiles"
 fi
 
 echo ''
