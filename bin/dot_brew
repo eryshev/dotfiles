@@ -49,8 +49,8 @@ cd $dotfilesDirectory
 
 # Upgrade homebrew
 echo "› brew update"
-brew update
+brew update -verbose
 
 # Run Homebrew through the Brewfile
 echo "› brew bundle"
-brew bundle
+brew bundle -verbose
