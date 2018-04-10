@@ -26,10 +26,11 @@ font pango: System San Francisco Display 11
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
+
+set $left h
+set $down j
+set $up k
+set $right l
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -53,11 +54,11 @@ bindsym Mod1+$down focus down
 bindsym Mod1+$up focus up
 bindsym Mod1+$right focus right
 
-# alternatively, you can use the cursor keys:
-bindsym Mod1+Left focus left
-bindsym Mod1+Down focus down
-bindsym Mod1+Up focus up
-bindsym Mod1+Right focus right
+# # alternatively, you can use the cursor keys:
+# bindsym Mod1+Left focus left
+# bindsym Mod1+Down focus down
+# bindsym Mod1+Up focus up
+# bindsym Mod1+Right focus right
 
 # move focused window
 bindsym Mod1+Shift+$left move left
@@ -65,14 +66,14 @@ bindsym Mod1+Shift+$down move down
 bindsym Mod1+Shift+$up move up
 bindsym Mod1+Shift+$right move right
 
-# alternatively, you can use the cursor keys:
-bindsym Mod1+Shift+Left move left
-bindsym Mod1+Shift+Down move down
-bindsym Mod1+Shift+Up move up
-bindsym Mod1+Shift+Right move right
+# # alternatively, you can use the cursor keys:
+# bindsym Mod1+Shift+Left move left
+# bindsym Mod1+Shift+Down move down
+# bindsym Mod1+Shift+Up move up
+# bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+h split h
+# bindsym Mod1+h split h
 
 # split in vertical orientation
 bindsym Mod1+v split v
@@ -105,14 +106,17 @@ bindsym Mod1+Shift+minus move scratchpad
 bindsym Mod1+minus scratchpad show
 
 set $workspace1 "1: Browser "
+set $workspace2 "2: IDEA "
+set $workspace3 "3: Code "
+set $workspace4 "4: Outlook "
 set $workspace9 "9: Private "
 set $workspace10 "10: Messengers "
 
 # switch to workspace
 bindsym Mod1+1 workspace $workspace1
-bindsym Mod1+2 workspace 2
-bindsym Mod1+3 workspace 3
-bindsym Mod1+4 workspace 4
+bindsym Mod1+2 workspace $workspace2
+bindsym Mod1+3 workspace $workspace3
+bindsym Mod1+4 workspace $workspace4
 bindsym Mod1+5 workspace 5
 bindsym Mod1+6 workspace 6
 bindsym Mod1+7 workspace 7
@@ -123,9 +127,9 @@ bindsym Mod1+c workspace $workspace10
 
 # move focused container to workspace
 bindsym Mod1+Shift+1 move container to workspace $workspace1
-bindsym Mod1+Shift+2 move container to workspace 2
-bindsym Mod1+Shift+3 move container to workspace 3
-bindsym Mod1+Shift+4 move container to workspace 4
+bindsym Mod1+Shift+2 move container to workspace $workspace2
+bindsym Mod1+Shift+3 move container to workspace $workspace3
+bindsym Mod1+Shift+4 move container to workspace $workspace4
 bindsym Mod1+Shift+5 move container to workspace 5
 bindsym Mod1+Shift+6 move container to workspace 6
 bindsym Mod1+Shift+7 move container to workspace 7
@@ -260,7 +264,12 @@ hide_edge_borders smart
 exec_always compton -f
 
 # Rofi
-bindsym Mod1+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+# bindsym Mod1+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym Mod1+d exec rofi -show run
 
 # Hide title bar
 new_window pixel 3
+
+# Floating term
+for_window [class="FloatingTerm"] floating enable, resize set 900 1280, move up 400px
+bindsym Mod1+Shift+Return exec gnome-terminal --class FloatingTerm
