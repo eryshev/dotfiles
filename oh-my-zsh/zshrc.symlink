@@ -97,4 +97,4 @@ export GIT_SSH=$(which ssh)
 
 export EDITOR="code"
 
-alias reload!="source ~/.zshrc"
+eval "$(pipenv --completion)"

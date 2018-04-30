@@ -5,6 +5,8 @@ brew 'skhd', args={'with-logging': true}
 brew 'chunkwm', args={'with-logging': true}
 brew 'zsh'
 brew 'jq'
+brew 'python'
+brew 'pipenv'
 # brew 'docker-compose', args={'--ignore-dependencies': true}
 
 cask 'dropbox'
