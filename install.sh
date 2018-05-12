@@ -10,4 +10,4 @@ git pull origin master
 git submodule update --init --recursive
 
 # link i3 config
-ln -s ~/dev/dotfiles/.config/i3 ~/.config/i3
+ln -s ~/dev/gits/dotfiles/.config/i3 ~/.config/i3
