@@ -179,32 +179,32 @@ set $inactive-text-color        #676e7d
 set $urgent-bg-color            #e53935
 set $base0F                     #00ff00
 
-# # Start i3bar to display a workspace bar (plus the system information i3status
-# # finds out, if available)
-# bar {
-#         # status_command i3status | ~/.i3/my_i3status.py
-#         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#         # status_command i3status
-#         tray_output primary
-#         font pango: System San Francisco Display, FontAwesome 11
-#         colors {
-#                 separator $757575
-#                 background $bg-color
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        # status_command i3status | ~/.i3/my_i3status.py
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        # status_command i3status
+        tray_output primary
+        font pango: System San Francisco Display, FontAwesome 11
+        colors {
+                separator $757575
+                background $bg-color
                 
-#                 #                       border                  background              text
-#                 focused_workspace       $bg-color               $bg-color               $text-color
-#                 # active_workspace      $bg-color               $base02                 $base03
-#                 inactive_workspace      $inactive-bg-color      $inactive-bg-color      $inactive-text-color
-#                 urgent_workspace        $urgent-bg-color        $urgent-bg-color        $text-color
-#         }
-# }
+                #                       border                  background              text
+                focused_workspace       $bg-color               $bg-color               $text-color
+                # active_workspace      $bg-color               $base02                 $base03
+                inactive_workspace      $inactive-bg-color      $inactive-bg-color      $inactive-text-color
+                urgent_workspace        $urgent-bg-color        $urgent-bg-color        $text-color
+        }
+}
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used their favorite modFontAwesomeifier (alt or windows)
 #
 # i3-config-wizard will not launch if there already is a config file
-# in ~/.i3/config.
+# in ~/.i3/config.s
 #
 # Please remove the following exec line:
 #######################################################################
@@ -241,7 +241,7 @@ workspace $workspace9 output $right_monitor
 workspace $workspace10 output $right_monitor
 
 ## Apps settings
-assign [class="Google-chrome"] $workspace1
+# assign [class="Google-chrome"] $workspace1
 assign [class="Rambox"] $workspace9
 assign [class="Slack"] $workspace10
 
@@ -271,7 +271,9 @@ bindsym Mod1+d exec rofi -show run
 new_window pixel 3
 
 # Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Floating term
 for_window [class="FloatingTerm"] floating enable, resize set 900 1280, move up 400px
 bindsym Mod1+Shift+Return exec gnome-terminal --class FloatingTerm
+
+exec_always xrandr --output HDMI-1 --left-of DVI-D-1
