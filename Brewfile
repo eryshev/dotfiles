@@ -7,6 +7,7 @@ brew 'zsh'
 brew 'jq'
 brew 'python'
 brew 'pipenv'
+brew 'vim', args={'--with-lua': true}
 # brew 'docker-compose', args={'--ignore-dependencies': true}
 
 cask 'dropbox'

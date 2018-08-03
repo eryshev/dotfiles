@@ -14,3 +14,5 @@ alias mvnrs="mvn bfs:refresh-sources"
 alias mvnr="mvnrm && mvnrs && mvni"
 
 alias dl="cd ~/.dotfiles && gl && cd -"
+
+alias vi="/usr/local/Cellar/vim/8.1.0202/bin/vim"
