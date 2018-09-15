@@ -1,0 +1,62 @@
+syntax on " enable syntax processing
+
+colorscheme codedark " colorscheme installed in ~/.vimrc
+set colorcolumn=80
+
+set tabstop=4 " number of visual spaces per TAB
+set softtabstop=4 " number of spaces in tab when editing
+set expandtab  " tabs are spaces
+set autoindent " turns autoindent
+set smartindent " ???
+
+set number " set line numbers
+set relativenumber " how far is the line from current one
+
+set showcmd " show the last command in the bottom right corner
+set cursorline " highlight current line
+set wildmenu " visual autocomplete for command menu
+
+set showmatch " highlight matching [{()}]
+set incsearch " search as characters are entered
+set hlsearch " highlight matches
+" turn off search highlight by Ctrl-L
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L> 
+
+" ======= CUSTOM REMAPPINGS
+" move vertically by visual line, it helps when line is wrapped
+let mapleader = ","
+
+nnoremap j gj
+nnoremap k gk
+
+" move to beginning/end of line with sematic B and E
+nnoremap B ^
+nnoremap E $
+" $/^ doesn't do anything 
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
+" source vimrc
+nnoremap <leader>sv :source $MYVIMRC<return>
+" use tab to move between bracket pairs
+nnoremap <tab> %
+vnoremap <tab> %
+" don't tap shift to insert a command 
+nnoremap ; :
+" select lat pasted text
+nnoremap <leader>v V`]
+
+" ======= END CUSTOM REMAPPINGS
+
+" ======= Some interesting staff
+set undofile " persist undo between vim sessions by saving an undofile <FILENAME>.un~
+
+au FocusLost * :wa " autosave on losing focus
+
+" set nocompatible
+" set ruler
+
+" ======= Searching
+set ignorecase " if you search in all-lowercase, your search will be case-insensistive
+set smartcase " if you have at least one upper-case letter, your search will be case-sensitive
+
