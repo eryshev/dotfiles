@@ -3,5 +3,9 @@ while :;
   clear
   date
   $1
+  if test $? -ne 0
+    then
+      exit 1
+    fi
   sleep $2
 done

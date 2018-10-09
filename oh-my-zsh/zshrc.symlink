@@ -98,3 +98,6 @@ export GIT_SSH=$(which ssh)
 export EDITOR="code"
 
 eval "$(pipenv --completion)"
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
