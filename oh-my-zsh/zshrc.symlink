@@ -58,7 +58,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo docker docker-compose vi-mode)
+plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo docker docker-compose vi-mode gradle)
 
 source $ZSH/oh-my-zsh.sh
 for file in ~/.dotfiles/**/*.zsh; do
@@ -95,9 +95,8 @@ export GIT_SSH=$(which ssh)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR="code"
-
-eval "$(pipenv --completion)"
+export EDITOR="vim"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+cd
