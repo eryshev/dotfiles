@@ -32,7 +32,14 @@ shift + alt - j : chunkc tiling::window --warp south
 shift + alt - k : chunkc tiling::window --warp north
 shift + alt - l : chunkc tiling::window --warp east
 
+# rotate
 alt - r : chunkc tiling::desktop --rotate 90
+
+# mirror tree y-axis
+alt - y : chunkc tiling::desktop --mirror vertical
+
+# mirror tree x-axis
+alt - x : chunkc tiling::desktop --mirror horizonta
 
 # move focused container to workspace
 shift + alt - p : chunkc tiling::window --send-to-desktop prev
@@ -80,6 +87,13 @@ ctrl + alt - 2  : chunkc tiling::monitor -f 2
 ctrl + alt - 3  : chunkc tiling::monitor -f 3
 
 # toggle right desktop
-alt - 3 : chunkc tiling::desktop --focus 3
-alt - 2 : chunkc tiling::desktop -f 2
 alt - 1 : chunkc tiling::desktop -f 1
+alt - 2 : chunkc tiling::desktop -f 2
+alt - 3 : chunkc tiling::desktop --focus 3
+alt - 4 : chunkc tiling::desktop --focus 4
+alt - 5 : chunkc tiling::desktop --focus 5
+alt - 6 : chunkc tiling::desktop --focus 6
+alt - 7 : chunkc tiling::desktop --focus 7
+alt - 8 : chunkc tiling::desktop --focus 8
+alt - 9 : chunkc tiling::desktop --focus 9
+
