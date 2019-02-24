@@ -60,3 +60,5 @@ au FocusLost * :wa " autosave on losing focus
 set ignorecase " if you search in all-lowercase, your search will be case-insensistive
 set smartcase " if you have at least one upper-case letter, your search will be case-sensitive
 
+" ======= Plugins
+autocmd FileType python setlocal commentstring=#\ %s
