@@ -1,7 +1,11 @@
+set nocompatible " nocompat with vi
+
 syntax on " enable syntax processing
 
 colorscheme codedark " colorscheme installed in ~/.vimrc
-set colorcolumn=80
+
+set colorcolumn=80,120 " two rulers at 80 and 120
+set ruler " enable ruler
 
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
@@ -19,13 +23,34 @@ set wildmenu " visual autocomplete for command menu
 set showmatch " highlight matching [{()}]
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
+
+" ======= Searching
+set ignorecase " if you search in all-lowercase, your search will be case-insensistive
+set smartcase " if you have at least one upper-case letter, your search will be case-sensitive
+
 " turn off search highlight by Ctrl-L
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L> 
 
-" ======= CUSTOM REMAPPINGS
-" move vertically by visual line, it helps when line is wrapped
+" ======= Plugins
+autocmd FileType python setlocal commentstring=#\ %s
+
+" ======= Others 
+set undofile " persist undo between vim sessions by saving an undofile <FILENAME>.un~
+
+au FocusLost * :wa " autosave on losing focus
+
+set ttyfast " speed up scrolling in Vim
+
+" ======= Status line
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+
+set laststatus=2
+
+" ======= REMAPPINGS
+
 let mapleader = ","
 
+" move vertically by visual line, it helps when line is wrapped
 nnoremap j gj
 nnoremap k gk
 
@@ -47,18 +72,3 @@ nnoremap ; :
 nnoremap <leader>v V`]
 
 " ======= END CUSTOM REMAPPINGS
-
-" ======= Some interesting staff
-set undofile " persist undo between vim sessions by saving an undofile <FILENAME>.un~
-
-au FocusLost * :wa " autosave on losing focus
-
-" set nocompatible
-" set ruler
-
-" ======= Searching
-set ignorecase " if you search in all-lowercase, your search will be case-insensistive
-set smartcase " if you have at least one upper-case letter, your search will be case-sensitive
-
-" ======= Plugins
-autocmd FileType python setlocal commentstring=#\ %s
