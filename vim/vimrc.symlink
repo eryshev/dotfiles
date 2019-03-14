@@ -47,6 +47,8 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFE
 set laststatus=2
 
 " ======= REMAPPINGS
+" save file opened w/out sudo
+cnoremap w!! execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
 
 let mapleader = ","
 
