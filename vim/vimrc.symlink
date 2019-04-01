@@ -25,8 +25,13 @@ set showmatch " highlight matching [{()}]
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
 
+let g:netrw_browse_split=4 " mode of netrw
+let g:netrw_winsize=20 " netrw window high
+
+set spell " enable spell checking
+
 " ======= Searching
-set ignorecase " if you search in all-lowercase, your search will be case-insensistive
+set ignorecase " if you search in all-lowercase, your search will be case-insensitive
 set smartcase " if you have at least one upper-case letter, your search will be case-sensitive
 
 " turn off search highlight by Ctrl-L
