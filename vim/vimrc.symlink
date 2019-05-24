@@ -9,7 +9,7 @@ set laststatus=2 " status bar always shown
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
 " \\\\\ Interface /////
-colorscheme codedark " colorscheme installed in ~/.vimrc
+colorscheme ron " codedark  colorscheme installed in ~/.vimrc
 set colorcolumn=80,120 " two rulers at 80 and 120
 set ruler " enable ruler
 set cursorline " highlight current line
@@ -19,9 +19,9 @@ set relativenumber " how far is the line from current one
 set mouse=a " enables 
 
 " \\\\\ Disable backups /////
-set noswapfile
 set nobackup
 set nowb
+set directory=$HOME/.vim/swp//
 
 " \\\\\ Indentation /////
 set autoindent " new lines inherit indent of previous lines
@@ -30,6 +30,8 @@ set tabstop=4 " number of visual spaces per TAB
 set shiftwidth=4 " '>' indents with 4 spaces
 set softtabstop=4 " number of spaces in tab when editing
 set expandtab  " inser spaces when pressing tabs
+
+set clipboard=unnamedplus
 
 syntax on " enable syntax processing
 
@@ -42,6 +44,7 @@ let g:netrw_browse_split=4 " mode of netrw
 let g:netrw_winsize=20 " netrw window high
 
 set spell " enable spell checking
+
 
 " ======= Searching
 set ignorecase " if you search in all-lowercase, your search will be case-insensitive
