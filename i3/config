@@ -237,8 +237,8 @@ workspace $workspace10 output $right_monitor
 
 ## Apps settings
 assign [class="Google-chrome"] $workspace1
-assign [class="Rambox"] $workspace9
-assign [class="Slack"] $workspace10
+# assign [class="Rambox"] $workspace9
+# assign [class="Slack"] $workspace10
 
 # Start-up
 #exec google-chrome
@@ -267,9 +267,10 @@ new_window pixel 3
 hide_edge_borders smart
 
 #  Screens config
-exec xrandr --auto --output DP-7 --mode 1920x1080 --left-of DP-0
+#exec xrandr --auto 
+exec xrandr --auto --output DP-5 --mode 1920x1080 --right-of DP-4 --output DP-4 --mode 1920x1080
 
-# exec_always xmodmap -e "clear lock" #disable caps lock switch
-# exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+exec_always xmodmap -e "clear lock" #disable caps lock switch
+exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 # exec_always xmodmap -e "keysym Escape = Caps_Lock" #set caps_lock as escape
-exec xmodmap -e 'remove Lock = Caps_Lock' -e 'keycode 66 = Escape'
+# exec xmodmap -e 'remove Lock = Caps_Lock' -e 'keycode 66 = Escape'

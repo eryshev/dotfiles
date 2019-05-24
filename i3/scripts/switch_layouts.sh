@@ -11,7 +11,7 @@ current_layout=$(~/.config/i3/tools/xkblayout-state/xkblayout-state print %s | a
 # fi
 layout_to_set="us"
 if [ "$current_layout" == "ru" ]; then
-    layout_to_set="us -variant intl"
+    layout_to_set="us"
 elif [ "$current_layout" == "us" ]; then
     layout_to_set="ru"
 fi
