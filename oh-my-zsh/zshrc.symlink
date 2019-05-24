@@ -58,7 +58,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo docker docker-compose vi-mode)
+plugins=(z git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo docker docker-compose vi-mode gradle)
 
 source $ZSH/oh-my-zsh.sh
 for file in ~/.dotfiles/**/*.zsh; do
@@ -95,7 +95,24 @@ export GIT_SSH=$(which ssh)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR="vi"
+export EDITOR="vim"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+cd
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

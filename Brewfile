@@ -1,5 +1,5 @@
 tap 'homebrew/bundle'
-# tap 'crisidev/homebrew-chunkwm'
+tap 'koekeishiya/formulae'
 
 brew 'skhd', args={'with-logging': true}
 brew 'chunkwm', args={'with-logging': true}
@@ -9,7 +9,7 @@ brew 'python'
 brew 'pipenv'
 brew 'vim', args={'--with-lua': true}
 brew 'tree'
-# brew 'docker-compose', args={'--ignore-dependencies': true}
+brew 'htop'
 
 cask 'dropbox'
 cask 'keepassxc'
@@ -18,3 +18,5 @@ cask 'visual-studio-code'
 cask 'Docker'
 cask 'caskroom/versions/java8'
 cask 'intellij-idea' 
+cask 'rambox'
+cask 'anki'
