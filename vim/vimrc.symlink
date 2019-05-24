@@ -1,25 +1,38 @@
-set nocompatible " nocompat with vi
+" \\\\\ General config /////
+set nocompatible " use Vim settings instead of Vi 
+set history=1000 " bigger history for executed commands
+set showcmd " show the last command in the bottom right corner
+set autoread " automatically reread files if unmodified inside of Vim
+
+" \\\\\ Status bar /////
+set laststatus=2 " status bar always shown
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+
+" \\\\\ Interface /////
+colorscheme codedark " colorscheme installed in ~/.vimrc
+set colorcolumn=80,120 " two rulers at 80 and 120
+set ruler " enable ruler
+set cursorline " highlight current line
+set wildmenu " display commands tab-completition as a menu
+set number " set line numbers
+set relativenumber " how far is the line from current one
+set mouse=a " enables 
+
+" \\\\\ Disable backups /////
+set noswapfile
+set nobackup
+set nowb
+
+" \\\\\ Indentation /////
+set autoindent " new lines inherit indent of previous lines
+filetype plugin indent on " smart auto indentation
+set tabstop=4 " number of visual spaces per TAB
+set shiftwidth=4 " '>' indents with 4 spaces
+set softtabstop=4 " number of spaces in tab when editing
+set expandtab  " inser spaces when pressing tabs
 
 syntax on " enable syntax processing
 
-colorscheme codedark " colorscheme installed in ~/.vimrc
-
-set colorcolumn=80,120 " two rulers at 80 and 120
-set ruler " enable ruler
-
-set tabstop=4 " number of visual spaces per TAB
-set softtabstop=4 " number of spaces in tab when editing
-set expandtab  " tabs are spaces
-set shiftwidth=4 " spaces for auto indent
-set autoindent " turns autoindent
-set smartindent " ???
-
-set number " set line numbers
-set relativenumber " how far is the line from current one
-
-set showcmd " show the last command in the bottom right corner
-set cursorline " highlight current line
-set wildmenu " visual autocomplete for command menu
 
 set showmatch " highlight matching [{()}]
 set incsearch " search as characters are entered
@@ -48,9 +61,6 @@ au FocusLost * :wa " autosave on losing focus
 set ttyfast " speed up scrolling in Vim
 
 " ======= Status line
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
-
-set laststatus=2
 
 " ======= REMAPPINGS
 " save file opened w/out sudo
