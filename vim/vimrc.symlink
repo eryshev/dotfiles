@@ -13,7 +13,7 @@ colorscheme codedark " colorscheme installed in ~/.vimrc
 set colorcolumn=80,120 " two rulers at 80 and 120
 set ruler " enable ruler
 set cursorline " highlight current line
-set wildmenu " display commands tab-completition as a menu
+set wildmenu " display commands tab-completion as a menu
 set number " set line numbers
 set relativenumber " how far is the line from current one
 set mouse=a " enables 
@@ -29,9 +29,9 @@ filetype plugin indent on " smart auto indentation
 set tabstop=4 " number of visual spaces per TAB
 set shiftwidth=4 " '>' indents with 4 spaces
 set softtabstop=4 " number of spaces in tab when editing
-set expandtab  " inser spaces when pressing tabs
+set expandtab  " insert spaces when pressing tabs
 
-set clipboard=unnamedplus
+set clipboard=unnamedplus,unnamed
 
 syntax on " enable syntax processing
 
