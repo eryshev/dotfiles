@@ -3,6 +3,7 @@ set nocompatible " use Vim settings instead of Vi
 set history=1000 " bigger history for executed commands
 set showcmd " show the last command in the bottom right corner
 set autoread " automatically reread files if unmodified inside of Vim
+set backspace=indent,eol,start " make backspace great again
 
 " \\\\\ Status bar /////
 set laststatus=2 " status bar always shown
