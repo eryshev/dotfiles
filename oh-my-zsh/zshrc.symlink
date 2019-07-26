@@ -58,7 +58,7 @@ ZSH_THEME="wild-cherry"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo docker docker-compose vi-mode gradle)
+plugins=(z git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo docker docker-compose vi-mode gradle ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 for file in ~/.dotfiles/**/*.zsh; do
