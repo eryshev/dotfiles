@@ -1,0 +1,16 @@
+let mapleader = ","
+
+map <Leader>d :action GotoImplementation<CR>
+
+map <Leader>l :action FindUsages<CR>
+
+map <Leader>s :action FileStructurePopup<CR>
+
+" Paste in insert mode, block selection otherwise
+imap <C-v> <Esc>:action $Paste<CR>
+
+" Block selection
+map <C-s> :action EditorSelectWord<CR>
+
+nmap <leader>b :action Back<cr>
+nmap <leader>f :action Forward<cr>
