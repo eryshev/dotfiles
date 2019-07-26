@@ -4,6 +4,7 @@ set history=1000 " bigger history for executed commands
 set showcmd " show the last command in the bottom right corner
 set autoread " automatically reread files if unmodified inside of Vim
 set backspace=indent,eol,start " make backspace great again
+set clipboard=unnamedplus,unnamed
 
 " \\\\\ Status bar /////
 set laststatus=2 " status bar always shown
@@ -32,13 +33,20 @@ set shiftwidth=4 " '>' indents with 4 spaces
 set softtabstop=4 " number of spaces in tab when editing
 set expandtab  " insert spaces when pressing tabs
 
-set clipboard=unnamedplus,unnamed
-
-syntax on " enable syntax processing
-
-set showmatch " highlight matching [{()}]
+" \\\\\ Search /////
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
+set ignorecase " if you search in all-lowercase, your search will be case-insensitive
+set smartcase " if you have at least one upper-case letter, your search will be case-sensitive
+
+" \\\\\ Text rendering /////
+set scrolloff=3 " always be 3 lines away from the top or the bottom of the screen when scrolling 
+set sidescrolloff=5 " always be 5 columns away from the sides of the screen
+set linebreak " break lines between words when wrapping
+syntax on " enable syntax processing
+
+
+set showmatch " highlight matching [{()}]
 
 let g:netrw_browse_split=4 " mode of netrw
 let g:netrw_winsize=20 " netrw window high
@@ -47,8 +55,6 @@ set spell " enable spell checking
 
 
 " ======= Searching
-set ignorecase " if you search in all-lowercase, your search will be case-insensitive
-set smartcase " if you have at least one upper-case letter, your search will be case-sensitive
 
 " turn off search highlight by Ctrl-L
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L> 
@@ -66,6 +72,16 @@ set ttyfast " speed up scrolling in Vim
 " ======= Status line
 
 " ======= REMAPPINGS
+" go to previous buffer wtf?
+map <C-J> :bprev<CR> 
+" go to next buffer wtd?
+map <C-K> :bnext<CR> "
+" move between windows
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
 " save file opened w/out sudo
 cnoremap w!! execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
 

@@ -115,4 +115,5 @@ chunkc tiling::rule --owner iBooks --state float
 chunkc tiling::rule --owner Calendar --state float
 chunkc tiling::rule --owner \"Cisco AnyConnect Secure Mobility Client\" --state float
 chunkc tiling::rule --owner \"Microsoft Outlook\" --state float
+chunkc tiling::rule --owner Gramps --state float
 
