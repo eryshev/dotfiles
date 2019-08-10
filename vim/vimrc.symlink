@@ -109,3 +109,5 @@ nnoremap ; :
 nnoremap <leader>v V`]
 
 " ======= END CUSTOM REMAPPINGS
+" Plugins
+:set runtimepath^=~/.vim/plugins/vim-ripgrep
