@@ -10,6 +10,7 @@ brew 'pipenv'
 brew 'vim', args={'--with-lua': true}
 brew 'tree'
 brew 'htop'
+brew 'fzf'
 
 cask 'dropbox'
 cask 'keepassxc'

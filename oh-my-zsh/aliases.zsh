@@ -11,3 +11,5 @@ alias dl="cd ~/.dotfiles && gl && cd -"
 alias p="python3"
 
 alias k="kubectl"
+
+alias dc="docker-compose"
