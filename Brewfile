@@ -11,6 +11,7 @@ brew 'vim', args={'--with-lua': true}
 brew 'tree'
 brew 'htop'
 brew 'fzf'
+brew 'fish'
 
 cask 'dropbox'
 cask 'keepassxc'
