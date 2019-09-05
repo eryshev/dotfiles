@@ -259,7 +259,7 @@ client.urgent           $urgent-bg-color        $urgent-bg-color        $text-co
 hide_edge_borders smart
 
 # Compton compositor for xserver
-exec_always compton -f
+# exec_always compton -f
 
 # Rofi
 bindsym Mod4+d exec rofi -show run -lines 3
@@ -270,7 +270,7 @@ new_window pixel 3
 hide_edge_borders smart
 
 #  Screens config
-exec xrandr --auto --output DP-5 --mode 1920x1080 --right-of DP-4 --output DP-4 --mode 1920x1080
+exec xrandr --auto --output DVI-D-0 --mode 1920x1080 --right-of HDMI-0 --mode 1920x1080
 
 # exec_always xmodmap -e "clear lock" #disable caps lock switch
 # exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
