@@ -5,5 +5,8 @@ i3-wm
 rofi
 fonts-font-awesome
 i3blocks
+i3lock
+scrot
+imagemagick-6.q16
 
 
