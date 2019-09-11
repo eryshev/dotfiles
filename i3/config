@@ -181,8 +181,8 @@ set $base0F                     #00ff00
 # finds out, if available)
 bar {
         # status_command i3status | ~/.i3/my_i3status.py
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        # status_command i3status
+        # status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        status_command i3status
         tray_output primary
         font pango: System San Francisco Display, FontAwesome 11
         colors {

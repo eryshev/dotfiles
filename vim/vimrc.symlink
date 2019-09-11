@@ -53,6 +53,7 @@ let g:netrw_browse_split=4 " mode of netrw
 let g:netrw_winsize=20 " netrw window high
 
 set spell " enable spell checking
+autocmd BufNewFile,BufRead config set nospell
 
 
 " ======= Searching

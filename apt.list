@@ -1,12 +1,32 @@
 git
 fish
 nautilus-dropbox
+# i3 
 i3-wm
-rofi
-fonts-font-awesome
 i3blocks
 i3lock
-scrot
+i3status
+rofi
+## fonts
+fonts-font-awesome
+fonts-noto
+fonts-mplus
+## needded for fonts
+xsettingsd
+## get screenshots
 imagemagick-6.q16
+scrot
+## notification daemon
+dunst
+## terminal 
+rxvt-unicode
+## wallpapers
+hsetroot
+## compositor, used to add some effects to windows
+compton
+## GTK theme configurator
+lxappearance
+## image viewer
+viewnior
 curl
 fzf
