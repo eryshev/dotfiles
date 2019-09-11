@@ -157,6 +157,8 @@ client.unfocused        $inactive-bg-color      $inactive-bg-color      $inactiv
 client.urgent           $urgent-bg-color        $urgent-bg-color        $text-color                     $base0F 
 
 ###################### Custom conf ####################################
+# setup a wallpaper
+exec --no-startup-id feh --bg-sclale ~/.dotfiles/.wallpaper.png
 
 # Move workspace between monitors
 bindsym Mod4+n move workspace to output left

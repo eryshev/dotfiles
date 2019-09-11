@@ -21,7 +21,7 @@ dunst
 ## terminal 
 rxvt-unicode
 ## wallpapers
-hsetroot
+feh
 ## compositor, used to add some effects to windows
 compton
 ## GTK theme configurator
