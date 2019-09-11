@@ -1,3 +1,4 @@
 git/gitconfig.local.symlink
 _aliases.zsh
 *.un~
+.fonts/.uuid
