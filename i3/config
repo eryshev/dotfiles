@@ -157,8 +157,9 @@ client.unfocused        $inactive-bg-color      $inactive-bg-color      $inactiv
 client.urgent           $urgent-bg-color        $urgent-bg-color        $text-color                     $base0F 
 
 ###################### Custom conf ####################################
-# setup a wallpaper
+# Setup a wallpaper
 exec --no-startup-id feh --bg-sclale ~/.dotfiles/.wallpaper.png
+
 
 # Move workspace between monitors
 bindsym Mod4+n move workspace to output left
@@ -169,9 +170,6 @@ bindsym Mod4+n move workspace to output left
 # Alt + p for layout changing
 bindcode Mod4+33 exec ~/.config/i3/scripts/switch_layouts.sh
 bindcode Mod4+Shift+41 exec ~/.config/i3/scripts/set_international_layout.sh
-
-# Wallpaper
-exec_always feh --bg-scale ~/Pictures/Wallpapers/sunrise-phu-quoc-island-ocean.jpg
 
 # Block PC
 #bindsym Mod4+Shift+b exec i3lock
@@ -195,10 +193,8 @@ assign [class="Rambox"] $workspace10
 assign [class="Slack"] $workspace10
 
 # Start-up
-#exec google-chrome
-#exec rambox
-#exec slack
-exec dropbox start
+exec --no-startup-id dropbox start
+exec --no-startup-id compton -b
   
 hide_edge_borders smart
 
