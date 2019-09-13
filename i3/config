@@ -167,7 +167,7 @@ bindsym Mod4+n move workspace to output left
 # bindsym Mod4+p exec pkill -RTMIN+1 i3blocks
 # Alt + p for layout changing
 bindcode Mod4+33 exec ~/.config/i3/scripts/switch_layouts.sh
-bindcode Mod4+Shift+41 exec ~/.config/i3/scripts/set_international_layout.sh
+bindcode Mod4+Shift+33 exec ~/.config/i3/scripts/set_international_layout.sh
 
 # Block PC
 #bindsym Mod4+Shift+b exec i3lock
