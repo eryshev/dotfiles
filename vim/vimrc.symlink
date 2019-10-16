@@ -1,68 +1,116 @@
-" \\\\\ General config /////
+" General config {{{
 set nocompatible " use Vim settings instead of Vi 
 set history=1000 " bigger history for executed commands
 set showcmd " show the last command in the bottom right corner
 set autoread " automatically reread files if unmodified inside of Vim
 set backspace=indent,eol,start " make backspace great again
 set clipboard=unnamedplus,unnamed
+set modelines=1 " check the final line of the file for a modeline, used to configure vim on per file basis
 
-" \\\\\ Status bar /////
-set laststatus=2 " status bar always shown
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
 
-" \\\\\ Interface /////
-colorscheme koehler " colorscheme installed in ~/.vimrc
+" }}}
+
+" Interface {{{
+colorscheme desert " colorscheme installed in ~/.vimrc
 set colorcolumn=80,120 " two rulers at 80 and 120
 set ruler " enable ruler
 set cursorline " highlight current line
-set wildmenu " display commands tab-completion as a menu
 set number " set line numbers
 set relativenumber " how far is the line from current one
 set mouse=a " enables 
 
-" \\\\\ Disable backups /////
+set wildmenu " display commands tab-completion as a menu, for example when you look for a file
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=.git\*,.hg\*,.svn\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+" }}}
+
+" Backups {{{
+" turn backup off
 set nobackup
 set nowb
-set directory=$HOME/.vim/swp//
-set undodir=$HOME/.vim/undo//
+set directory=$HOME/.vim/swp// " set swp folder
+set undodir=$HOME/.vim/undo// " set undo folder
+" }}}
 
-" \\\\\ Indentation /////
+" Indentation {{{
+filetype indent on " load indent file when recognizing ft
 set autoindent " new lines inherit indent of previous lines
-filetype plugin indent on " smart auto indentation
 set tabstop=4 " number of visual spaces per TAB
 set shiftwidth=4 " '>' indents with 4 spaces
 set softtabstop=4 " number of spaces in tab when editing
 set expandtab  " insert spaces when pressing tabs
+" }}}
 
-" \\\\\ Search /////
+" Folding {{{
+set foldenable " enable folding
+set foldlevelstart=10 " open most folds by default
+set foldnestmax=10 " no more than 10 nested folds
+set foldmethod=indent " fold based on indent level
+" }}}
+
+" Search {{{
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
 set ignorecase " if you search in all-lowercase, your search will be case-insensitive
 set smartcase " if you have at least one upper-case letter, your search will be case-sensitive
+" }}}
 
-" \\\\\ Text rendering /////
+" Text rendering {{{
+syntax on " enable syntax processing
 set scrolloff=3 " always be 3 lines away from the top or the bottom of the screen when scrolling 
 set sidescrolloff=5 " always be 5 columns away from the sides of the screen
 set linebreak " break lines between words when wrapping
-syntax on " enable syntax processing
-
-
 set showmatch " highlight matching [{()}]
+" }}}
+
+" Mappings {{{
+" move vertically by visual line, it helps when line is wrapped
+nnoremap j gj
+nnoremap k gk
+
+" move to beginning/end of line with sematic B and E
+nnoremap B ^
+nnoremap E $
+" $/^ doesn't do anything 
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
+" toggle folds
+nnoremap <space> za
+
+" don't tap shift to insert a command 
+nnoremap ; :
+" }}}
+
+" Leader Mappings {{{
+let mapleader = ","
+" select last pasted text
+nnoremap <leader>v `[V`]
+" fast saving a buffer
+nmap <leader>w :w!<cr>
+" }}}
+
+" Plugins configuration {{{
+filetype plugin on " load plugin file when recognizing ft
+autocmd FileType python setlocal commentstring=#\ %s
+" }}}
+
+"""""""""""""""" TODO
 
 let g:netrw_browse_split=4 " mode of netrw
 let g:netrw_winsize=20 " netrw window high
 
 set spell " enable spell checking
 autocmd BufNewFile,BufRead config set nospell
-
-
-" ======= Searching
-
-" turn off search highlight by Ctrl-L
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L> 
-
-" ======= Plugins
-autocmd FileType python setlocal commentstring=#\ %s
 
 " ======= Others 
 set undofile " persist undo between vim sessions by saving an undofile <FILENAME>.un~
@@ -71,9 +119,15 @@ au FocusLost * :wa " autosave on losing focus
 
 set ttyfast " speed up scrolling in Vim
 
-" ======= Status line
+" turn off search highlight by Ctrl-L
+nnoremap <silent> <leader> :nohlsearch<CR> 
+
+" Plugins
+" FIXME
+" :set runtimepath^=~/.vim/plugins/vim-ripgrep
 
 " ======= REMAPPINGS
+
 " go to previous buffer wtf?
 map <C-J> :bprev<CR> 
 " go to next buffer wtd?
@@ -87,29 +141,12 @@ nnoremap <C-L> <C-W><C-L>
 " save file opened w/out sudo
 cnoremap w!! execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
 
-let mapleader = ","
-
-" move vertically by visual line, it helps when line is wrapped
-nnoremap j gj
-nnoremap k gk
-
-" move to beginning/end of line with sematic B and E
-nnoremap B ^
-nnoremap E $
-" $/^ doesn't do anything 
-nnoremap $ <nop>
-nnoremap ^ <nop>
 
 " source vimrc
 nnoremap <leader>sv :source $MYVIMRC<return>
 " use tab to move between bracket pairs
 nnoremap <tab> %
 vnoremap <tab> %
-" don't tap shift to insert a command 
-nnoremap ; :
-" select lat pasted text
-nnoremap <leader>v V`]
 
-" ======= END CUSTOM REMAPPINGS
-" Plugins
-:set runtimepath^=~/.vim/plugins/vim-ripgrep
+
+" vim:foldmethod=marker:foldlevel=0
