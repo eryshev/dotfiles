@@ -1,24 +1,21 @@
 tap 'homebrew/bundle'
-tap 'koekeishiya/formulae'
+#tap 'koekeishiya/formulae'
 
-brew 'skhd', args={'with-logging': true}
-brew 'chunkwm', args={'with-logging': true}
-brew 'zsh'
+#brew 'skhd', args={'with-logging': true}
+#brew 'chunkwm', args={'with-logging': true}
 brew 'jq'
-brew 'python'
-brew 'pipenv'
 brew 'vim', args={'--with-lua': true}
 brew 'tree'
 brew 'htop'
 brew 'fzf'
 brew 'fish'
+brew 'git-cola'
+brew 'ripgrep'
 
-cask 'dropbox'
-cask 'keepassxc'
 cask 'google-chrome'
-cask 'visual-studio-code'
+cask 'keeweb'
+cask 'visual-studio-code-insiders'
 cask 'Docker'
-cask 'caskroom/versions/java8'
 cask 'intellij-idea' 
 cask 'rambox'
 cask 'anki'

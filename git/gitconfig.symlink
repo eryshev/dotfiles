@@ -11,12 +11,16 @@
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+	precomposeunicode = true
+	sparseCheckout = true
 [apply]
         whitespace = nowarn
 [mergetool]
         keepBackup = false
+        tool = vimdiff
 [difftool]
         prompt = false
+        tool = vimdiff
 [help]
         autocorrect = 1
 [push]
@@ -24,6 +28,8 @@
         # for more information on different options of the below setting.
         #
         # Setting to git 2.0 default to suppress warning message
-        default = simple
+	default = current
 [cola]
 	spellcheck = false
+[rerere]
+	enabled = true
