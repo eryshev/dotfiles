@@ -17,7 +17,7 @@ set -g theme_display_git_stashed_verbose no
 set -g theme_display_git_master_branch yes
 
 # abbr
-abbr -a gu "git add -A && git commit -a -m 'update' && git pushi"
+abbr -a gu "git add -A && git commit -a -m 'update' && git push"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
