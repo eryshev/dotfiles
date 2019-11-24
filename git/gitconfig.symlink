@@ -21,6 +21,7 @@
 [difftool]
         prompt = false
         tool = vimdiff
+	trustExitCode = true
 [help]
         autocorrect = 1
 [push]
@@ -33,3 +34,5 @@
 	spellcheck = false
 [rerere]
 	enabled = true
+[diff]
+	tool = vimdiff
