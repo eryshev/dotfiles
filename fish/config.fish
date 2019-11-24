@@ -14,3 +14,9 @@ set -g theme_display_git_ahead_verbose no
 set -g theme_display_git_dirty_verbose no
 set -g theme_display_git_stashed_verbose no
 set -g theme_display_git_master_branch yes
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
