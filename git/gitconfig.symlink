@@ -36,3 +36,5 @@
 	enabled = true
 [diff]
 	tool = vimdiff
+[protocol]
+	version = 2

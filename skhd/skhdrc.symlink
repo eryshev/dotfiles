@@ -43,7 +43,7 @@ cmd + alt - n : yabai -m space --create && \
                 yabai -m space --focus "${index}"
 
 # destroy desktop
-cmd + alt - w : yabai -m space --destroy
+cmd + alt - w : yabai -m space --destro_infra/docs/adr/20190305_supernova_architecture.md
 
 # fast focus desktop
 cmd + alt - x : yabai -m space --focus recent
