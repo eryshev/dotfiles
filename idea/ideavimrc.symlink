@@ -1,6 +1,6 @@
 let mapleader = ","
 
-map <Leader>d :action GotoImplementation<CR>
+" map <Leader>d :action GotoImplementation<CR>
 
 map <Leader>l :action FindUsages<CR>
 

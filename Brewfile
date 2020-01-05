@@ -10,7 +10,8 @@ brew 'fzf'
 brew 'fish'
 brew 'git-cola'
 brew 'ripgrep'
-brew 'yabai'
+# Holding out on this one as it demands SIP disabled
+# brew 'yabai'
 brew 'skhd', args={'with-logging': true}
 
 cask 'google-chrome'

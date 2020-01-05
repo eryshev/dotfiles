@@ -23,6 +23,7 @@ set -g theme_newline_cursor yes
 
 # abbr
 abbr -a gu "git add -A && git commit -a -m 'update' && git push"
+abbr -a l "ll -a"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
