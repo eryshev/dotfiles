@@ -24,9 +24,12 @@ set -g theme_newline_cursor yes
 # abbr
 abbr -a gu "git add -A && git commit -a -m 'update' && git push"
 abbr -a l "ll -a"
+abbr -a t "tmux"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+# rbenv
+status --is-interactive; and source (rbenv init -|psub)
