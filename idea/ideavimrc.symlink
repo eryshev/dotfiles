@@ -13,7 +13,7 @@ imap <C-v> <Esc>:action $Paste<CR>
 map <C-s> :action EditorSelectWord<CR>
 
 " Close active editor
-map <C-w> :action CloseContent<CR>
+map <leader>w :action CloseContent<CR>
 
 nmap <leader>b :action Back<cr>
 nmap <leader>f :action Forward<cr>
