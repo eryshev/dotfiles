@@ -8,6 +8,7 @@ fish_hybrid_key_bindings
 fzf_key_bindings
 
 set -g theme_date_format +"%d-%m-%Y %H:%M:%S"
+set -g theme_display_date no
 # configure bobthefish for huge git repos
 set -g theme_display_git_dirty no
 set -g theme_display_git_untracked no
@@ -34,3 +35,7 @@ eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | so
 
 # rbenv
 status --is-interactive; and source (rbenv init -|psub)
+
+# Rust
+set PATH $HOME/.cargo/bin $PATH
+

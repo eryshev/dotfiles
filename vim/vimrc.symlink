@@ -1,5 +1,26 @@
-" General config {{{
+" Vundle {{{
 set nocompatible " use Vim settings instead of Vi 
+filetype off     " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" for fish users
+set shell=/bin/bash
+
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'rust-lang/rust.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+" }}}
+
+" General config {{{
 set history=1000 " bigger history for executed commands
 set showcmd " show the last command in the bottom right corner
 set autoread " automatically reread files if unmodified inside of Vim
@@ -18,7 +39,7 @@ set tm=500
 " Interface {{{
 colorscheme desert " colorscheme installed in ~/.vimrc
 " taken from https://github.com/rainglow/vim
-colorscheme gloom-contrast
+colorscheme gloom
 set colorcolumn=80,120 " two rulers at 80 and 120
 set ruler " enable ruler
 set cursorline " highlight current line
@@ -44,7 +65,7 @@ set undodir=$HOME/.vim/undo// " set undo folder
 " }}}
 
 " Indentation {{{
-filetype indent on " load indent file when recognizing ft
+" filetype indent on " load indent file when recognizing ft
 set autoindent " new lines inherit indent of previous lines
 set tabstop=4 " number of visual spaces per TAB
 set shiftwidth=4 " '>' indents with 4 spaces
@@ -102,7 +123,7 @@ nmap <leader>w :w!<cr>
 " }}}
 
 " Plugins configuration {{{
-filetype plugin on " load plugin file when recognizing ft
+" filetype plugin on " load plugin file when recognizing ft
 autocmd FileType python setlocal commentstring=#\ %s
 " }}}
 
