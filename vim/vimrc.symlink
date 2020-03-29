@@ -17,6 +17,8 @@ set tm=500
 
 " Interface {{{
 colorscheme desert " colorscheme installed in ~/.vimrc
+" taken from https://github.com/rainglow/vim
+colorscheme gloom-contrast
 set colorcolumn=80,120 " two rulers at 80 and 120
 set ruler " enable ruler
 set cursorline " highlight current line
