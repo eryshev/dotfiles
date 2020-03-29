@@ -16,13 +16,14 @@ set -g theme_display_git_dirty_verbose no
 set -g theme_display_git_stashed_verbose no
 set -g theme_display_git_master_branch yes
 # disable renv and venv strings
-set -g theme_display_ruby no
-set -g theme_display_virtualenv no
+set -g theme_display_ruby yes
+set -g theme_display_virtualenv yes 
 # cursor on a new line
 set -g theme_newline_cursor yes
 
 # abbr
 abbr -a gu "git add -A && git commit -a -m 'update' && git push"
+abbr -a gpf "git push --force"
 abbr -a l "ll -a"
 abbr -a t "tmux"
 
