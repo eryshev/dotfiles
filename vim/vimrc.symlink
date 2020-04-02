@@ -125,6 +125,9 @@ nmap <leader>w :w!<cr>
 " Plugins configuration {{{
 " filetype plugin on " load plugin file when recognizing ft
 autocmd FileType python setlocal commentstring=#\ %s
+
+" run Rust formatter on save
+let g:rustfmt_autosave = 1
 " }}}
 
 """""""""""""""" TODO

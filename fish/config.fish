@@ -25,6 +25,7 @@ set -g theme_newline_cursor yes
 # abbr
 abbr -a gu "git add -A && git commit -a -m 'update' && git push"
 abbr -a gpf "git push --force"
+abbr -a gpr "git-pull-recursive"
 abbr -a l "ll -a"
 abbr -a t "tmux"
 
