@@ -20,8 +20,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'rust-lang/rust.vim'
 
 " Plugin 'majutsushi/tagbar'
-"
+" Colorscheme
 Plugin 'jnurmine/Zenburn'
+
+" Swap windows
+Plugin 'wesQ3/vim-windowswap'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -128,8 +131,20 @@ let mapleader = ","
 nnoremap <leader>v `[V`]
 " fast saving a buffer
 nmap <leader>w :w!<cr>
+" substitute all occurences of a word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+" run python files
+" autocmd FileType python map <buffer> <Leader>r :w<CR>:exec '!python3' shellescape(@%, 1) < input <CR>
+" autocmd FileType python imap <buffer> <Leader>r <esc>:w<CR>:exec '!python3' shellescape(@%, 1) < input <CR>
+autocmd FileType python nnoremap <Leader>r :call RunPython()<CR>
+" copy all to clipboard
+nnoremap <Leader>c :w<CR>:%y*<CR>
 
-nmap <leader>t :TagbarToggle<CR>
+
+" tagbar plugin
+" nmap <leader>t :TagbarToggle<CR>
+
+
 " }}}
 
 " Plugins configuration {{{
@@ -155,6 +170,17 @@ let g:syntastic_check_on_wq = 0
 
 " Setup checkers
 let g:syntastic_rust_checkers = ['cargo']
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
+" }}}
+
+" Custom function {{{
+function! RunPython()
+    let s:current_file = expand("%")
+    enew|silent execute ".!python3 " . shellescape(s:current_file, 1) . "< input"
+    setlocal buftype=nofile bufhidden=wipe noswapfile nowrap
+    setlocal nobuflisted
+endfunction
 " }}}
 
 """""""""""""""" TODO
