@@ -14,8 +14,14 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/syntastic'
+
+" Plugin 'nvie/vim-flake8'
+Plugin 'rust-lang/rust.vim'
+
+" Plugin 'majutsushi/tagbar'
+"
+Plugin 'jnurmine/Zenburn'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,6 +47,7 @@ set tm=500
 colorscheme desert " colorscheme installed in ~/.vimrc
 " taken from https://github.com/rainglow/vim
 colorscheme gloom
+colorscheme zenburn
 set colorcolumn=80,120 " two rulers at 80 and 120
 set ruler " enable ruler
 set cursorline " highlight current line
@@ -121,6 +128,8 @@ let mapleader = ","
 nnoremap <leader>v `[V`]
 " fast saving a buffer
 nmap <leader>w :w!<cr>
+
+nmap <leader>t :TagbarToggle<CR>
 " }}}
 
 " Plugins configuration {{{
@@ -129,6 +138,9 @@ autocmd FileType python setlocal commentstring=#\ %s
 
 " run Rust formatter on save
 let g:rustfmt_autosave = 1
+
+" Python syntax checker
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 " }}}
 
 " Syntastic {{{
@@ -142,7 +154,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Setup checkers
-let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_rust_checkers = ['cargo']
 " }}}
 
 """""""""""""""" TODO

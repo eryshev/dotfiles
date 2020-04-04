@@ -28,6 +28,8 @@ abbr -a gpf "git push --force"
 abbr -a gpr "git-pull-recursive"
 abbr -a l "ll -a"
 abbr -a t "tmux"
+abbr -a v "vim"
+abbr -a vv "vim ~/.dotfiles/vim/vimrc.symlink"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
