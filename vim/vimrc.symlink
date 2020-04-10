@@ -14,6 +14,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+" syntax highlighter
 Plugin 'scrooloose/syntastic'
 
 " Plugin 'nvie/vim-flake8'
@@ -26,6 +28,15 @@ Plugin 'jnurmine/Zenburn'
 " Swap windows
 Plugin 'wesQ3/vim-windowswap'
 
+" NERDTree
+Plugin 'preservim/nerdtree'
+
+" FZF
+Plugin 'junegunn/fzf'
+
+" Powerline
+Plugin 'vim-airline/vim-airline'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " }}}
@@ -37,6 +48,7 @@ set autoread " automatically reread files if unmodified inside of Vim
 set backspace=indent,eol,start " make backspace great again
 set clipboard=unnamedplus,unnamed
 set modelines=1 " check the final line of the file for a modeline, used to configure vim on per file basis
+set ttyfast " speed up scrolling in Vim
 
 " No annoying sound on errors
 set noerrorbells
@@ -47,10 +59,12 @@ set tm=500
 " }}}
 
 " Interface {{{
-colorscheme desert " colorscheme installed in ~/.vimrc
+" colorscheme desert " colorscheme installed in ~/.vimrc
 " taken from https://github.com/rainglow/vim
-colorscheme gloom
+" colorscheme gloom
 colorscheme zenburn
+" Create a highlight group for extra white spaces
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 set colorcolumn=80,120 " two rulers at 80 and 120
 set ruler " enable ruler
 set cursorline " highlight current line
@@ -78,9 +92,9 @@ set undodir=$HOME/.vim/undo// " set undo folder
 " Indentation {{{
 " filetype indent on " load indent file when recognizing ft
 set autoindent " new lines inherit indent of previous lines
-set tabstop=4 " number of visual spaces per TAB
-set shiftwidth=4 " '>' indents with 4 spaces
-set softtabstop=4 " number of spaces in tab when editing
+set tabstop=2 " number of visual spaces per TAB
+set softtabstop=2 " number of spaces in tab when editing
+set shiftwidth=2 " '>' indents with 4 spaces
 set expandtab  " insert spaces when pressing tabs
 " }}}
 
@@ -100,10 +114,13 @@ set smartcase " if you have at least one upper-case letter, your search will be 
 
 " Text rendering {{{
 syntax on " enable syntax processing
-set scrolloff=3 " always be 3 lines away from the top or the bottom of the screen when scrolling 
+set scrolloff=3 " always be 3 lines away from the top or the bottom of the screen when scrolling
 set sidescrolloff=5 " always be 5 columns away from the sides of the screen
 set linebreak " break lines between words when wrapping
 set showmatch " highlight matching [{()}]
+
+:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+:au InsertLeave * match ExtraWhitespace /\s\+$/
 " }}}
 
 " Mappings {{{
@@ -114,36 +131,46 @@ nnoremap k gk
 " move to beginning/end of line with sematic B and E
 nnoremap B ^
 nnoremap E $
-" $/^ doesn't do anything 
+" $/^ doesn't do anything
 nnoremap $ <nop>
 nnoremap ^ <nop>
 
 " toggle folds
 nnoremap <space> za
 
-" don't tap shift to insert a command 
+" don't tap shift to insert a command
 nnoremap ; :
+
+" Open file with FZF search
+nnoremap <C-p> :FZF<CR>
+
+" go to previous buffer
+" nnoremap <C-j> :bprev<CR>
+" go to next buffer
+" nnoremap <C-k> :bnext<CR>
 " }}}
 
 " Leader Mappings {{{
 let mapleader = ","
+
 " select last pasted text
 nnoremap <leader>v `[V`]
+
 " fast saving a buffer
 nmap <leader>w :w!<cr>
+
 " substitute all occurences of a word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
 " run python files
 " autocmd FileType python map <buffer> <Leader>r :w<CR>:exec '!python3' shellescape(@%, 1) < input <CR>
 " autocmd FileType python imap <buffer> <Leader>r <esc>:w<CR>:exec '!python3' shellescape(@%, 1) < input <CR>
 autocmd FileType python nnoremap <Leader>r :call RunPython()<CR>
+
 " copy all to clipboard
 nnoremap <Leader>c :w<CR>:%y*<CR>
 
-
-" tagbar plugin
-" nmap <leader>t :TagbarToggle<CR>
-
+map <Leader>b :NERDTreeToggle<CR>
 
 " }}}
 
@@ -156,6 +183,7 @@ let g:rustfmt_autosave = 1
 
 " Python syntax checker
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
+autocmd BufRead,BufNewFile *.py,*.pyw,*.,*. hcmatch BadWhitespace /\s\+$/  
 " }}}
 
 " Syntastic {{{
@@ -172,6 +200,31 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_rust_checkers = ['cargo']
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_checkers = ['python']
+" }}}
+
+" NERDTree {{{
+" Show dotfiles
+let NERDTreeShowHidden=1
+
+" Close vim when last window is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Open NERDTree when open a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" Open NERDTree when open vim w/out anything
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" If more than one window and previous buffer was NERDTree, go back to it.
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+" }}}
+
+" FZF {{{
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+" }}}
+
+" Airline {{{
+let g:airline#extensions#tabline#enabled = 1
 " }}}
 
 " Custom function {{{
@@ -196,8 +249,6 @@ set undofile " persist undo between vim sessions by saving an undofile <FILENAME
 
 au FocusLost * :wa " autosave on losing focus
 
-set ttyfast " speed up scrolling in Vim
-
 " turn off search highlight by Ctrl-L
 nnoremap <silent> <leader> :nohlsearch<CR> 
 
@@ -207,10 +258,6 @@ nnoremap <silent> <leader> :nohlsearch<CR>
 
 " ======= REMAPPINGS
 
-" go to previous buffer wtf?
-map <C-J> :bprev<CR> 
-" go to next buffer wtd?
-map <C-K> :bnext<CR> "
 " move between windows
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
