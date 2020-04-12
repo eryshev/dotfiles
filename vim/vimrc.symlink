@@ -32,7 +32,7 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'preservim/nerdtree'
 
 " FZF
-Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " Powerline
 Plugin 'vim-airline/vim-airline'
@@ -159,7 +159,7 @@ nnoremap <leader>v `[V`]
 " fast saving a buffer
 nmap <leader>w :w!<cr>
 
-" substitute all occurences of a word under cursor
+" Substitute all occurences of a word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " run python files
@@ -167,10 +167,28 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " autocmd FileType python imap <buffer> <Leader>r <esc>:w<CR>:exec '!python3' shellescape(@%, 1) < input <CR>
 autocmd FileType python nnoremap <Leader>r :call RunPython()<CR>
 
+" Run Rust files
+autocmd FileType rust nnoremap <Leader>r :RustRun<CR>
+
 " copy all to clipboard
 nnoremap <Leader>c :w<CR>:%y*<CR>
 
 map <Leader>b :NERDTreeToggle<CR>
+
+" Circle between 2 last opened buffers
+nnoremap <Leader><tab> :b#<CR>
+
+" Rg word under cursor and pipe results to FZF
+nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+
+" Search with RG and pipe results to FZF
+nnoremap <silent> <Leader>f :Rg a<C-H>
+
+" Buffers in FZF
+nnoremap <silent> <Leader>e :Buffers<CR>
+
+" Command history in FZF
+nnoremap <silent> <Leader>h :History:<CR>
 
 " }}}
 
@@ -183,7 +201,6 @@ let g:rustfmt_autosave = 1
 
 " Python syntax checker
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
-autocmd BufRead,BufNewFile *.py,*.pyw,*.,*. hcmatch BadWhitespace /\s\+$/  
 " }}}
 
 " Syntastic {{{
@@ -196,8 +213,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Setup checkers
-let g:syntastic_rust_checkers = ['cargo']
+" Setup Rust checkers, set cargo for cargo projects
+let g:syntastic_rust_checkers = ['rustc']
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_checkers = ['python']
 " }}}
@@ -227,13 +244,17 @@ set rtp+=/usr/local/opt/fzf
 let g:airline#extensions#tabline#enabled = 1
 " }}}
 
-" Custom function {{{
+" Custom functions {{{
 function! RunPython()
     let s:current_file = expand("%")
     enew|silent execute ".!python3 " . shellescape(s:current_file, 1) . "< input"
     setlocal buftype=nofile bufhidden=wipe noswapfile nowrap
     setlocal nobuflisted
 endfunction
+" }}}
+
+" {{{ Autocmd
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " }}}
 
 """""""""""""""" TODO
