@@ -30,6 +30,7 @@ abbr -a l "ll -a"
 abbr -a t "tmux"
 abbr -a v "vim"
 abbr -a vv "vim ~/.dotfiles/vim/vimrc.symlink"
+abbr -a p "pbcopy"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

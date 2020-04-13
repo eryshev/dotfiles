@@ -37,6 +37,15 @@ Plugin 'junegunn/fzf.vim'
 " Powerline
 Plugin 'vim-airline/vim-airline'
 
+" Nginx
+Plugin 'chr4/nginx.vim'
+
+" Docker
+Plugin 'ekalinin/Dockerfile.vim'
+
+" Comments
+Plugin 'preservim/nerdcommenter'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " }}}
@@ -144,6 +153,9 @@ nnoremap ; :
 " Open file with FZF search
 nnoremap <C-p> :FZF<CR>
 
+" Open home file with FZF search
+nnoremap <C-P> :FZF ~<CR>
+
 " go to previous buffer
 " nnoremap <C-j> :bprev<CR>
 " go to next buffer
@@ -189,6 +201,9 @@ nnoremap <silent> <Leader>e :Buffers<CR>
 
 " Command history in FZF
 nnoremap <silent> <Leader>h :History:<CR>
+
+" Close all buffers
+map <silent> <Leader>q :qall<CR>
 
 " }}}
 
