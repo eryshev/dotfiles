@@ -1,5 +1,5 @@
 # activate mouse
-set -g mouse on 
+set -g mouse on
 
 # vi bindings
 set-option -w -g mode-keys vi
@@ -29,6 +29,9 @@ unbind r
 bind r \
       source-file ~/.tmux.conf \;\
       display 'Reloaded tmux config'
+
+# User
+bind-key d send-keys -R \; clear-history
 
 unbind-key -T copy-mode-vi Space
 

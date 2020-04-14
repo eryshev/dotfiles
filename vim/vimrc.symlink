@@ -154,7 +154,7 @@ nnoremap ; :
 nnoremap <C-p> :FZF<CR>
 
 " Open home file with FZF search
-nnoremap <C-P> :FZF ~<CR>
+nnoremap <C-t> :FZF ~<CR>
 
 " go to previous buffer
 " nnoremap <C-j> :bprev<CR>
