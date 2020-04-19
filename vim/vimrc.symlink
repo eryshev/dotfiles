@@ -46,6 +46,9 @@ Plugin 'ekalinin/Dockerfile.vim'
 " Comments
 Plugin 'preservim/nerdcommenter'
 
+" Autocomplete
+Plugin 'ycm-core/YouCompleteMe'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " }}}
@@ -96,6 +99,8 @@ set nobackup
 set nowb
 set directory=$HOME/.vim/swp// " set swp folder
 set undodir=$HOME/.vim/undo// " set undo folder
+
+set undofile " persist undo between vim sessions by saving an undofile <FILENAME>.un~
 " }}}
 
 " Indentation {{{
@@ -160,6 +165,20 @@ nnoremap <C-t> :FZF ~<CR>
 " nnoremap <C-j> :bprev<CR>
 " go to next buffer
 " nnoremap <C-k> :bnext<CR>
+
+" Move between windows
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+" Use tab to move between bracket pairs
+nnoremap <tab> %
+vnoremap <tab> %
+
+" save file opened w/out sudo
+cnoremap w!! execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
+
 " }}}
 
 " Leader Mappings {{{
@@ -203,7 +222,15 @@ nnoremap <silent> <Leader>e :Buffers<CR>
 nnoremap <silent> <Leader>h :History:<CR>
 
 " Close all buffers
-map <silent> <Leader>q :qall<CR>
+map <silent> <Leader>q :wq<CR>
+
+map <silent> <Leader>qa :qall<CR>
+
+" Turn off search highlighting
+nnoremap <silent> <leader> :nohlsearch<CR>
+
+" source vimrc
+nnoremap <leader>sv :source $MYVIMRC<return>
 
 " }}}
 
@@ -260,55 +287,24 @@ let g:airline#extensions#tabline#enabled = 1
 " }}}
 
 " Custom functions {{{
+" enew|silent execute ".!python3 " . shellescape(s:current_file, 1) . "< input"
 function! RunPython()
     let s:current_file = expand("%")
-    enew|silent execute ".!python3 " . shellescape(s:current_file, 1) . "< input"
+    enew|silent execute ".!python3 " . shellescape(s:current_file, 1)
     setlocal buftype=nofile bufhidden=wipe noswapfile nowrap
     setlocal nobuflisted
 endfunction
 " }}}
 
 " {{{ Autocmd
+" Remove auto comment inserting on new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Autosave on losing focus
+autocmd FocusLost * :wa
+
+" set nospell
+"autocmd BufNewFile,BufRead config set nospell
 " }}}
-
-"""""""""""""""" TODO
-
-let g:netrw_browse_split=4 " mode of netrw
-let g:netrw_winsize=20 " netrw window high
-
-set nospell " enable spell checking
-autocmd BufNewFile,BufRead config set nospell
-
-" ======= Others 
-set undofile " persist undo between vim sessions by saving an undofile <FILENAME>.un~
-
-au FocusLost * :wa " autosave on losing focus
-
-" turn off search highlight by Ctrl-L
-nnoremap <silent> <leader> :nohlsearch<CR> 
-
-" Plugins
-" FIXME
-" :set runtimepath^=~/.vim/plugins/vim-ripgrep
-
-" ======= REMAPPINGS
-
-" move between windows
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-
-" save file opened w/out sudo
-cnoremap w!! execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
-
-
-" source vimrc
-nnoremap <leader>sv :source $MYVIMRC<return>
-" use tab to move between bracket pairs
-nnoremap <tab> %
-vnoremap <tab> %
-
 
 " vim:foldmethod=marker:foldlevel=0

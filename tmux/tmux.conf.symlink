@@ -31,7 +31,7 @@ bind r \
       display 'Reloaded tmux config'
 
 # User
-bind-key d send-keys -R \; clear-history
+bind-key b send-keys -R \; clear-history
 
 unbind-key -T copy-mode-vi Space
 
@@ -42,3 +42,6 @@ bind-key j select-pane -D
 bind-key h select-pane -L
 bind-key l select-pane -R
 bind-key k select-pane -U
+
+# Remove jumping to bottom in copy mode
+unbind -T copy-mode-vi MouseDragEnd1Pane
