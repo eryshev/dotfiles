@@ -165,11 +165,6 @@ nnoremap <C-p> :FZF<CR>
 " Open home file with FZF search
 nnoremap <C-t> :FZF ~<CR>
 
-" go to previous buffer
-" nnoremap <C-j> :bprev<CR>
-" go to next buffer
-" nnoremap <C-k> :bnext<CR>
-
 " Move between windows
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
@@ -234,8 +229,14 @@ map <silent> <Leader>qa :qall<CR>
 " Turn off search highlighting
 nnoremap <silent> <leader> :nohlsearch<CR>
 
-" source vimrc
+" Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<return>
+
+" Go to previous buffer
+nnoremap <leader>j :bprev<CR>
+
+" Go to next buffer
+nnoremap <leader>k :bnext<CR>
 
 " }}}
 
