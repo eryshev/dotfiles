@@ -154,7 +154,7 @@ nnoremap $ <nop>
 nnoremap ^ <nop>
 
 " toggle folds
-nnoremap <space> za
+"nnoremap <space> za
 
 " don't tap shift to insert a command
 nnoremap ; :
@@ -186,7 +186,8 @@ cnoremap w!! execute 'silent! write !sudo tee % > /dev/null' <bar> edit!
 " }}}
 
 " Leader Mappings {{{
-let mapleader = ","
+"let mapleader = ","
+let mapleader = " "
 
 " select last pasted text
 nnoremap <leader>v `[V`]
@@ -296,10 +297,9 @@ autocmd! User GoyoLeave Limelight!
 " }}}
 
 " Custom functions {{{
-" enew|silent execute ".!python3 " . shellescape(s:current_file, 1) . "< input"
 function! RunPython()
     let s:current_file = expand("%")
-    enew|silent execute ".!python3 " . shellescape(s:current_file, 1)
+    enew|silent execute ".!python3 " . shellescape(s:current_file, 1) . "< input"
     setlocal buftype=nofile bufhidden=wipe noswapfile nowrap
     setlocal nobuflisted
 endfunction

@@ -32,6 +32,20 @@ abbr -a v "vim"
 abbr -a vv "vim ~/.dotfiles/vim/vimrc.symlink"
 abbr -a p "pbcopy"
 
+# functions
+function fkill
+  set pid (ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if test "x$pid" != "x"
+    xargs kill $pid
+  end
+end
+
+function unswap
+  file = $1
+  echo removing $file
+end
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
