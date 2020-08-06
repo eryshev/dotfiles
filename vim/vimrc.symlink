@@ -1,5 +1,5 @@
 " Vundle {{{
-set nocompatible " use Vim settings instead of Vi 
+set nocompatible " use Vim settings instead of Vim
 filetype off     " required
 
 " set the runtime path to include Vundle and initialize
@@ -16,7 +16,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " syntax highlighter
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
+
+" Async lint and highliting
+Plugin 'dense-analysis/ale'
 
 " Plugin 'nvie/vim-flake8'
 Plugin 'rust-lang/rust.vim'
@@ -80,13 +83,13 @@ set tm=500
 " colorscheme gloom
 colorscheme zenburn
 " Create a highlight group for extra white spaces
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 set colorcolumn=80,120 " two rulers at 80 and 120
 set ruler " enable ruler
 set cursorline " highlight current line
 set number " set line numbers
 set relativenumber " how far is the line from current one
-set mouse=a " enables 
+set mouse=a " enables mouse
 
 set wildmenu " display commands tab-completion as a menu, for example when you look for a file
 set wildignore=*.o,*~,*.pyc
@@ -95,6 +98,9 @@ if has("win16") || has("win32")
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
+
+" Set gui font size
+set guifont=Hack:h18
 " }}}
 
 " Backups {{{
@@ -137,8 +143,8 @@ set sidescrolloff=5 " always be 5 columns away from the sides of the screen
 set linebreak " break lines between words when wrapping
 set showmatch " highlight matching [{()}]
 
-:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-:au InsertLeave * match ExtraWhitespace /\s\+$/
+":au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+":au InsertLeave * match ExtraWhitespace /\s\+$/
 " }}}
 
 " Mappings {{{
@@ -252,19 +258,19 @@ autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 " }}}
 
 " Syntastic {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
-" Setup Rust checkers, set cargo for cargo projects
-let g:syntastic_rust_checkers = ['rustc']
-let g:syntastic_python_python_exec = 'python3'
-let g:syntastic_python_checkers = ['python']
+"" Setup Rust checkers, set cargo for cargo projects
+"let g:syntastic_rust_checkers = ['rustc']
+"let g:syntastic_python_python_exec = 'python3'
+"let g:syntastic_python_checkers = ['python']
 " }}}
 
 " NERDTree {{{

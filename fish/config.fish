@@ -15,7 +15,7 @@ set -g theme_display_git_untracked no
 set -g theme_display_git_ahead_verbose no 
 set -g theme_display_git_dirty_verbose no
 set -g theme_display_git_stashed_verbose no
-set -g theme_display_git_master_branch yes
+set -g theme_display_git_master_branch no
 # disable renv and venv strings
 set -g theme_display_ruby yes
 set -g theme_display_virtualenv yes 
@@ -31,6 +31,7 @@ abbr -a t "tmux"
 abbr -a v "vim"
 abbr -a vv "vim ~/.dotfiles/vim/vimrc.symlink"
 abbr -a p "pbcopy"
+# abbr -a gcam "git commit -a -m --no-edit"
 
 # functions
 function fkill
