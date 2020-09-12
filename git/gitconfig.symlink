@@ -12,7 +12,6 @@
         excludesfile = ~/.gitignore
         editor = vim
 	precomposeunicode = true
-	sparseCheckout = true
 [apply]
         whitespace = nowarn
 [mergetool]
