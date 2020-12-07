@@ -1,7 +1,6 @@
 tap 'homebrew/bundle'
 tap 'koekeishiya/formulae'
 
-#brew 'chunkwm', args={'with-logging': true}
 brew 'jq'
 brew 'vim', args={'--with-lua': true}
 brew 'tree'
@@ -10,13 +9,22 @@ brew 'fzf'
 brew 'fish'
 brew 'git-cola'
 brew 'ripgrep'
+brew 'tmux'
+brew 'bat'
 # Holding out on this one as it demands SIP disabled
+# brew 'chunkwm', args={'with-logging': true}
 # brew 'yabai'
-brew 'skhd', args={'with-logging': true}
+# brew 'skhd', args={'with-logging': true}
 
-cask 'google-chrome'
+# cask 'google-chrome'
 cask 'keeweb'
-cask 'visual-studio-code-insiders'
-cask 'intellij-idea' 
+cask 'visual-studio-code'
+# Installed through Jetbrains Toolbox
+# cask 'intellij-idea' 
 cask 'rambox'
 cask 'anki'
+cask 'dropbox'
+cask 'front'
+cask 'flux'
+cask 'karabiner-elements'
+
