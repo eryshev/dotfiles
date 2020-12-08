@@ -1,0 +1,29 @@
+-server
+-ea
+# Maximum memory allocation for the JVM heap. Increase as needed, but not too much.
+-Xmx8g
+# Initial memory allocation for the JVM heap
+-Xms4g
+# Use G1GC for heaps larger than 4GB
+-XX:+UseG1GC
+# Disable file pathes cache as Intellij is already caching it
+-Dsun.io.useCanonCaches=false
+# Agressive optimizations
+-XX:+AggressiveOpts
+-Djava.net.preferIPv4Stack=true
+# Miscellaneous
+-XX:ReservedCodeCacheSize=1g
+-XX:+OmitStackTraceInFastThrow
+# Enables module selection prior to initial gradle sync
+-Dexternal.system.show.selective.import.dialog=true
+# Nonblocking reads for git operations
+-Dgit.blocking.read=false
+# Disable git indexing
+-Dvcs.log.index.git=true
+# Nonblocking io based refresh worker
+-Dvfs.use.nio-based.local.refresh.worker=true
+# metaspace free ratio growing
+-XX:MinMetaspaceFreeRatio=60
+# metaspace free ratio shrinking
+-XX:MaxMetaspaceFreeRatio=80
+-Dide.no.platform.update=true
