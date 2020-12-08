@@ -1,5 +1,5 @@
 # proprietary config
-# proprietary_config
+proprietary_config
 
 # mix emacs and vim keybindings
 fish_hybrid_key_bindings

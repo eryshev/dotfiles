@@ -24,8 +24,10 @@ cask 'visual-studio-code'
 # cask 'intellij-idea'
 cask 'rambox'
 cask 'anki'
-cask 'dropbox'
+# keeweb knows how to sync through dropbox w/out the official client
+# cask 'dropbox'
 cask 'front'
 cask 'flux'
 cask 'karabiner-elements'
+cask 'iglance'
 
