@@ -15,5 +15,6 @@ map <C-s> :action EditorSelectWord<CR>
 " Close active editor
 map <leader>w :action CloseContent<CR>
 
+" Override Intellij Navigation
 nmap <leader>b :action Back<cr>
 nmap <leader>f :action Forward<cr>

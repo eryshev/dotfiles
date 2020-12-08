@@ -52,8 +52,8 @@ end
 # eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
-# rbenv
-# status --is-interactive; and source (rbenv init -|psub)
+# activate rbenv
+status --is-interactive; and source (rbenv init -|psub)
 
 # Rust
 set PATH $HOME/.cargo/bin $PATH

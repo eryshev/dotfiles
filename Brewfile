@@ -11,6 +11,7 @@ brew 'git-cola'
 brew 'ripgrep'
 brew 'tmux'
 brew 'bat'
+brew 'rbenv'
 # Holding out on this one as it demands SIP disabled
 # brew 'chunkwm', args={'with-logging': true}
 # brew 'yabai'
@@ -20,7 +21,7 @@ brew 'bat'
 cask 'keeweb'
 cask 'visual-studio-code'
 # Installed through Jetbrains Toolbox
-# cask 'intellij-idea' 
+# cask 'intellij-idea'
 cask 'rambox'
 cask 'anki'
 cask 'dropbox'
