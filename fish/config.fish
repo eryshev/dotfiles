@@ -5,7 +5,7 @@ proprietary_config
 fish_hybrid_key_bindings
 
 # add fzf keybindings
-# fzf_key_bindings
+fzf_key_bindings
 
 set -g theme_date_format +"%d-%m-%Y %H:%M:%S"
 set -g theme_display_date no
@@ -49,7 +49,7 @@ end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-# eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
 # activate rbenv

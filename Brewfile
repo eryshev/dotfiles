@@ -12,6 +12,7 @@ brew 'ripgrep'
 brew 'tmux'
 brew 'bat'
 brew 'rbenv'
+brew 'nvm'
 # Holding out on this one as it demands SIP disabled
 # brew 'chunkwm', args={'with-logging': true}
 # brew 'yabai'
